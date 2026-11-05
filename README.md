@@ -31,13 +31,19 @@ fin serve
 
 Use `fin --help` for commands and `fin skill install` to install agent instructions.
 
+## Providers
+
+Use `fin provider presets` to see available presets. Codex supports browser and device login; Kimi Coding CN supports device login and API keys. Moonshot uses separate API credentials.
+
+DeepSeek Flash inference has passed live acceptance. Kimi login, automatic refresh, models and quota reads are verified; successful Kimi inference remains pending after the tested account reported exhausted quota and returned HTTP 429.
+
 ## Upgrade
 
 ```sh
 fin upgrade
 ```
 
-Configuration and credentials are preserved. Installed, unmodified agent instructions are refreshed. Upgrading from v0.4.1 or earlier requires running the installer once.
+Configuration and credentials are preserved. Installed, unmodified agent instructions are refreshed.
 
 ## Status
 
