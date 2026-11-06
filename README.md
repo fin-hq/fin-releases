@@ -33,9 +33,13 @@ Use `fin --help` for commands and `fin skill install` to install agent instructi
 
 ## Providers
 
-Use `fin provider presets` to see available presets. Codex supports browser and device login; Kimi Coding CN supports device login and API keys. Moonshot uses separate API credentials.
+Use `fin provider presets` to see available presets. Codex supports browser and device login; Claude supports browser OAuth and separate Anthropic API credentials; Kimi Coding CN supports device login and API keys. Moonshot uses separate API credentials. Grok Build OAuth, xAI API, Gemini API, Gemini CLI and Antigravity are separate presets; their successful live inference acceptance is pending. Claude live acceptance is also pending.
 
 DeepSeek Flash inference has passed live acceptance. Kimi login, automatic refresh, models and quota reads are verified; successful Kimi inference remains pending after the tested account reported exhausted quota and returned HTTP 429.
+
+## Managed credentials
+
+`fin client add --managed` issues expiring task credentials with explicit routes, request limits and optional budgets. A coordinator can delegate bounded child credentials, rotate keys without resetting usage, and suspend or revoke access. Remote management is off by default. Use `fin client schema` and the generated skill for that binary's exact contract. API money budgets are configured estimates; subscription quotas are separate.
 
 ## Upgrade
 
