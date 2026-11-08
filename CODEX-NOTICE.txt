@@ -1,0 +1,4 @@
+Codex CLI fallback instructions
+Copyright OpenAI
+Licensed under the Apache License, Version 2.0 (see CODEX-LICENSE.txt).
+Source: https://github.com/openai/codex/blob/rust-v0.167.0/codex-rs/models-manager/prompt.md

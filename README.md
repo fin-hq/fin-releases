@@ -1,4 +1,4 @@
-# fin
+# Fin
 
 A headless model gateway for agents. One endpoint, configurable providers and account pools, live configuration, and usage tracking.
 
@@ -35,19 +35,19 @@ Use `fin status` for gateway, local usage and cached provider quotas; `fin statu
 
 Use `fin provider presets` to see the products and authentication methods available in your binary. API keys and subscriptions remain separate credentials and quota scopes.
 
-Live acceptance includes DeepSeek Flash, Kimi Coding CN, GLM Coding CN, Alibaba CN API and personal Token Plan paths, Gemini API Flash-Lite, and Antigravity OAuth Flash-Lite. Each product has its own verified protocol subset. Codex OAuth and Antigravity OAuth also passed native-backed image generation with decoded outputs and reconciled usage.
-
-MiniMax, OpenRouter, TypeSafe Jev, Claude and Grok/xAI inference still need real-account acceptance. Gemini API image generation was blocked by the tested project's quota. Native image streaming and nonempty upstream thinking signatures require separate acceptance. Use the generated skill for precise boundaries.
-
 ## Managed credentials
 
 `fin client add --managed` issues expiring task credentials with explicit routes, request limits and optional budgets. A coordinator can delegate bounded child credentials, rotate keys without resetting usage, and suspend or revoke access. Remote management is off by default. Use `fin client schema` and the generated skill for that binary's exact contract. API money budgets are configured estimates; subscription quotas are separate.
 
 ## Shared service
 
-Serve one fin instance behind HTTPS and issue a separate, scoped key to each user. Account pools support explicit weights and quota-aware admission. Remote management is off by default; administer keys through the server CLI.
+Serve one fin instance behind HTTPS and issue a separate, scoped key to each user. Account pools support explicit weights and quota-aware admission. Remote management is off by default. Enable it with one HTTPS public origin, initialize the owner password on the server, then use `fin login NAME --url ORIGIN`. Device authorization grants scoped management sessions; these are separate from inference keys. Sessions are stored privately under `~/.fin` and refresh automatically.
 
 Back up configuration, credential files and runtime state together. Managed keys, usage, budgets and mutation receipts are not recreated by importing configuration alone. Multi-replica shared accounting is not supported.
+
+## Connect a client
+
+Supply the Fin origin, inference key and route name to a client, or use `fin connect codex` / `fin connect claude` for an explicit preview and apply. Disconnect restores only Fin-owned fields; unrelated client settings are preserved. Use `fin connect --help` for the exact flags.
 
 ## Upgrade
 
@@ -60,3 +60,5 @@ Configuration and credentials are preserved. Installed, unmodified agent instruc
 ## Status
 
 Early release. Linux installation and upgrades are verified; native macOS and Windows acceptance is pending. Cross-compilation alone does not verify runtime behavior.
+
+Codex fallback instructions: [notice](CODEX-NOTICE.txt) and [Apache-2.0 license](CODEX-LICENSE.txt).
