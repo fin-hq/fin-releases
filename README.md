@@ -29,17 +29,25 @@ fin init
 fin serve
 ```
 
-Use `fin --help` for commands and `fin skill install` to install agent instructions.
+Use `fin status` for gateway, local usage and cached provider quotas; `fin status --refresh` explicitly refreshes quotas. `usage` shows local records; `quota` queries providers. Use `fin --help` for commands and `fin skill install` to install agent instructions.
 
 ## Providers
 
-Use `fin provider presets` to see available presets. Codex supports browser and device login; Claude supports browser OAuth and separate Anthropic API credentials; Kimi Coding CN supports device login and API keys. Moonshot uses separate API credentials. Grok Build OAuth, xAI API, Gemini API, Gemini CLI and Antigravity are separate presets; their successful live inference acceptance is pending. Claude live acceptance is also pending.
+Use `fin provider presets` to see the products and authentication methods available in your binary. API keys and subscriptions remain separate credentials and quota scopes.
 
-DeepSeek Flash inference has passed live acceptance. Kimi login, automatic refresh, models and quota reads are verified; successful Kimi inference remains pending after the tested account reported exhausted quota and returned HTTP 429.
+Live acceptance includes DeepSeek Flash, Kimi Coding CN, GLM Coding CN, Alibaba CN API and personal Token Plan paths, Gemini API Flash-Lite, and Antigravity OAuth Flash-Lite. Each product has its own verified protocol subset. Codex OAuth and Antigravity OAuth also passed native-backed image generation with decoded outputs and reconciled usage.
+
+MiniMax, OpenRouter, TypeSafe Jev, Claude and Grok/xAI inference still need real-account acceptance. Gemini API image generation was blocked by the tested project's quota. Native image streaming and nonempty upstream thinking signatures require separate acceptance. Use the generated skill for precise boundaries.
 
 ## Managed credentials
 
 `fin client add --managed` issues expiring task credentials with explicit routes, request limits and optional budgets. A coordinator can delegate bounded child credentials, rotate keys without resetting usage, and suspend or revoke access. Remote management is off by default. Use `fin client schema` and the generated skill for that binary's exact contract. API money budgets are configured estimates; subscription quotas are separate.
+
+## Shared service
+
+Serve one fin instance behind HTTPS and issue a separate, scoped key to each user. Account pools support explicit weights and quota-aware admission. Remote management is off by default; administer keys through the server CLI.
+
+Back up configuration, credential files and runtime state together. Managed keys, usage, budgets and mutation receipts are not recreated by importing configuration alone. Multi-replica shared accounting is not supported.
 
 ## Upgrade
 
